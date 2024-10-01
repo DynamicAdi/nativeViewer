@@ -1,27 +1,27 @@
 {
   "expo": {
-    "name": "website",
-    "slug": "website",
-    "version": "1.0.0",
+    "name": "Reverant Technologies",
+    "slug": "Reverant Technologies",
+    "version": "5.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.reverant.app"
+      "bundleIdentifier": "com.reverent.technologies"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/splash.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.reverant.app"
+      "package": "com.reverent.technologies"
     },
     "web": {
       "bundler": "metro",

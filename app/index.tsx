@@ -1,4 +1,4 @@
-import { Text, View, BackHandler } from "react-native";
+import { Text, View, BackHandler, Image } from "react-native";
 import WebView from "react-native-webview";
 import * as Network from "expo-network";
 import { useEffect, useRef, useState } from "react";
@@ -6,7 +6,7 @@ import Fontisto from "@expo/vector-icons/Fontisto";
 
 export default function Index() {
   const [isConnected, setIsConnected]: any = useState(null);
-
+  const [splash, setSplash] = useState<boolean>(true);
   useEffect(() => {
     const checkNetwork = async function () {
       const networkstatus = await Network.getNetworkStateAsync();
@@ -20,15 +20,14 @@ export default function Index() {
   const [canGoBack, setCanGoBack] = useState(false);
 
   useEffect(() => {
-    // Handle Android back button press
     const backAction = () => {
       if (canGoBack && webViewRef.current) {
         // window.
         webViewRef.current.reload();
         webViewRef.current.goBack();
-        return true; // Prevent default back button behavior
+        return true;
       }
-      return false; // Allow the app to close if there's no web history to go back to
+      return false;
     };
 
     const backHandler = BackHandler.addEventListener(
@@ -39,9 +38,18 @@ export default function Index() {
     return () => backHandler.remove(); // Cleanup on component unmount
   }, [canGoBack]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setSplash(false);
+    }, 2000);
+  }, [])
   return (
     <View style={{ flex: 2, paddingTop: "10%", backgroundColor: "white" }}>
-      {isConnected ? (
+      {
+      splash ? <View style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'column'}}>
+        <Image source={require('@/assets/images/newSplash.jpeg')}/>
+      </View> :
+      isConnected ? (
         <WebView 
         ref={webViewRef}
         source={{ uri: "https://rtpldigital.com/products" }}
