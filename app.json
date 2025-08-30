@@ -38,6 +38,7 @@
       "eas": {
         "projectId": "44e57ad4-2259-4313-88af-564d6e75517c"
       }
-    }
+    },
+    "packageManager": "bun"
   }
 }
